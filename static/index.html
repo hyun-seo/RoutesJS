@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>main</title>
+    <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+    <script type="text/javascript" src="http://localhost:5500/src/main.js"></script>
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="http://localhost:5500/static/pages/home.html">Home</a>
+        <a href="http://localhost:5500/static/pages/logs.html">Logs</a>
+    </div> 
+    <div databinding="test:innerText">
+
+    </div>
+    <div class="bodycontainer"> </div>
+
+    <script>
+        model = {
+            'test' : "viewmodel test",
+            'logs' : [{userId: '1', id: '1', title: 'title', body: 'body'}]
+        }
+
+        const viewmodel = viewmodelProxy(model)
+
+
+        fetchapis({logs: 'https://jsonplaceholder.typicode.com/posts'})
+        
+        pagination(viewmodel)
+
+        
+    </script>
+    
+</body>
+
+</html>
